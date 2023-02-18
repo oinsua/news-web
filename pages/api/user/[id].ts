@@ -3,6 +3,7 @@ import dbConnect from '@/mongodb/lib/mongodb'
 import { TUser } from '@/model/user';
 import User from 'mongodb/model/user.model'
 import { adapterUserData } from '@/util/user.util';
+import { encrytPassword, getRole } from '@/mongodb/util/helpers';
 
 type Data = {
     success?: Boolean;
@@ -43,8 +44,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                     const newUser = {
                         user,
                         email,
-                        password,
-                        rol,
+                        password: await encrytPassword(password),
+                        rol: await getRole({ id: rol[0] }),
                     }
 
                     await User.findByIdAndUpdate(id, newUser, { new: true })

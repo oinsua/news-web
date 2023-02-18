@@ -2,7 +2,7 @@ export interface TUser {
     user: string;
     email: string;
     password: string;
-    rol: string;
+    rol: any[];
 };
 
 export interface TRol {

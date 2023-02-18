@@ -4,6 +4,7 @@ import dbConnect from 'mongodb/lib/mongodb'
 import User from 'mongodb/model/user.model'
 import { adapterUserData } from '@/util/user.util'
 import jwt from 'jsonwebtoken'
+import { encrytPassword, getRoles } from '@/mongodb/util/helpers'
 
 type Data = {
     success?: Boolean;
@@ -12,12 +13,11 @@ type Data = {
     token?: string;
 }
 
-const SECRET = process.env.SECRET || '';
+const SECRET = process.env.SECRET || '!2sAWQ4$fT%67GDV{e4%WAQ"=8';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
     //Get params
     const { method } = req
-    console.log('method: ', method);
 
     await dbConnect()
 
@@ -41,11 +41,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 let newUser = new User({
                     user,
                     email,
-                    password,
-                    rol
+                    password: await encrytPassword(password)
                 });
 
-                //newUser = await getRoles({ roles: rol, newUser });
+                newUser = await getRoles({ roles: rol, newUser });
 
                 const userInsert = await newUser.save();
 
