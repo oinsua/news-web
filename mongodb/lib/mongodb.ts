@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 // getting the connection uri
-const MONGODB_URI = process.env.MONGO_URI
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017'
 
 // checking if MONGO_URI is defined
 if (!MONGODB_URI) {
@@ -10,24 +10,24 @@ if (!MONGODB_URI) {
     )
 }
 
+mongoose.set('strictQuery', true); // save all file that are in schema
+
 // maintaining a cached connection to prevent reconnection (connections growing exponentially during API Route usage)
 let cached = (global as any).mongoose
 // restiing the connection if there was no cached connection
 if (!cached) {
     cached = (global as any).mongoose = { conn: null, promise: null }
 }
-
 /**
  * mongodb connection
  */
 export default async function connect() {
 
     // returning the cached connection if it exists
-    if (cached) {
-        return cached
+    if (cached.conn) {
+        return cached.conn
     }
 
-    cached = await mongoose.connect(MONGODB_URI ? MONGODB_URI : 'mongodb://localhost:27017')
-
-    return cached
+    cached.conn = await mongoose.connect(MONGODB_URI)
+    return cached.conn
 }

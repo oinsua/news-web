@@ -2,21 +2,12 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import dbConnect from '@/mongodb/lib/mongodb'
 import { TUser } from '@/model/user';
 import User from 'mongodb/model/user.model'
+import { adapterUserData } from '@/util/user.util';
 
 type Data = {
     success?: Boolean;
     error?: string;
     data?: TUser;
-}
-
-const adapterUserData = ({ users }: any): TUser => {
-    const data: TUser = {
-        user: users?.user ? users?.user : '',
-        email: users?.email ? users?.email : '',
-        password: users?.password ? users?.password : '',
-        rol: users?.rol ? users?.rol[0].toString() : ''
-    }
-    return data
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
@@ -84,10 +75,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             } catch (error: any) {
                 res.status(400).json({ success: false, error: error ? error?.message : '' })
             }
+            break
         default:
             res.status(400).json({ success: false, error: "Invalid Method" })
             break
     }
-
-
 }
