@@ -1,0 +1,14 @@
+.buttonLogin {
+    width: 100%;
+    padding: 0.3rem;
+    font-weight: bold;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttonLogin:hover {
+    background-color: black;
+}

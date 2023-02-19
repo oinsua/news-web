@@ -1,7 +1,4 @@
 import './globals.css'
-import Header from 'components/header'
-import Footer from '@/components/footer'
-import Search from '@/components/Search'
 
 export default function RootLayout({
   children,
@@ -16,10 +13,7 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <Header />
-        <Search />
         {children}
-        <Footer />
       </body>
     </html>
   )

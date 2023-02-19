@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './header.module.css'
 import Image from 'next/image'
 import Nav from '../navigation'
+import Logout from '../logout'
 
 export default function Header() {
   return (
@@ -20,6 +21,7 @@ export default function Header() {
           </div>
           <Nav />
         </div>
+        <Logout />
       </header>
     </>
   )
