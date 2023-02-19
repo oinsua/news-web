@@ -108,6 +108,8 @@
 
 .menuShow {
     clip: rect(auto, auto, 20rem, auto) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
 }
 
 .menuItem {
@@ -127,7 +129,7 @@
 }
 
 .menuItem:hover a {
-    color: black;
+    color: rgb(252, 250, 250);
     font-weight: bold;
 }
 
