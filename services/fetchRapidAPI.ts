@@ -59,8 +59,8 @@ export function fetchNewsSearch(): Promise<any> {
             toPublishedDate: 'null'
         },
         headers: {
-            'X-RapidAPI-Key': 'd7cefb13dbmsh7cffe7b3ea6e97cp13bc46jsnc5ecf6e9df92',
-            'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
+            'X-RapidAPI-Key': process.env.XRapidAPIKey || '',
+            'X-RapidAPI-Host': process.env.XRapidAPIHost || ''
         }
     };
 
