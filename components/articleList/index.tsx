@@ -1,40 +1,43 @@
 import React from 'react'
-import { fetchNewsSearch } from 'services/fetchRapidAPI'
 import { Inter } from '@next/font/google'
 import styles from './article.module.css'
 import classNames from 'classnames'
 import { News, NewsData } from 'model/news'
+import { fetchNewsGeneral } from '@/util/news.util'
+import DefaultImage from 'asset/jpg/defaultImage.jpg'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default async function ArticleList() {
-    const items: NewsData = await fetchNewsSearch();
+export default function ArticleList() {
+
+    const { data }: NewsData = fetchNewsGeneral()
+
   return (
     <>
     {
-       items?.value ? 
-       items?.value.map(({ id, title, url, description, body, snippet, datePublished, image}:News) => (
-            <article className={classNames(inter.className,styles.card)} key={id} >
+       data.map(({ author, title, description, url, source, image, category, language, country, published_at}:News, index) => (
+            <article className={classNames(inter.className,styles.card)} key={index} >
                 <div className={styles.wrapperTitle}>
                     <h3 className={inter.className}>
                         {title}
                     </h3>
-                    <img src={image.url} alt={`Img News`} className={styles.images} />
+                    <Image src={image || DefaultImage} alt={`Img News`} height={80} width={80} className={styles.images} />
                 </div>
-                <span className={styles.textItaic}>Date Published: {datePublished}</span>
+                <span className={styles.textItaic}>Author: {author}</span>
+                <span className={styles.textItaic}>Date Published: {published_at}</span>
                 <p className={styles.description}>
                     {description}
                 </p>
                 <h6 className={styles.wrapperRead}>
                     <span className={styles.arrow}>-&gt;</span> 
-                    <a href={url} target="_blank" rel="noopener noreferrer">
-                        <span className={styles.readMore}>Leer Más ...</span>
-                    </a>
+                    <Link href={`/home/[id]`} as={`/home/${index}`}>
+                            <span className={styles.readMore}>Leer Más ...</span>
+                    </Link>
                 </h6>
             </article>
         ))
-        :
-        <article>You have exceeded the rate limit per second for your plan, BASIC, by the API provider</article>
     }
     </>
   )

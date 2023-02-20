@@ -1,34 +1,22 @@
 export interface NewsData {
-    _type?: string;
-    totalCount?: number;
-    value?: News[];
-    data?: {
-        message?: string;
-    }
+    pagination?: {
+        limit: number;
+        offset: number;
+        count: number;
+        total: number;
+    };
+    data: News[];
 }
 
 export interface News {
-    id: string;
-    title: string;
-    url: string;
-    description: string;
-    body: string;
-    snippet: string;
-    language: string;
-    isSafe: boolean;
-    datePublished: string;
-    provider: any[];
-    image: {
-        url: string;
-        height: number;
-        width: number;
-        thumbnail: string;
-        thumbnailHeight: number;
-        thumbnailWidth: number;
-        base64Encoding: string;
-        name: string;
-        title: string;
-        provider: { name: string; favIcon: string; favIconBase64Encoding: string; };
-        webpageUrl: string;
-    };
+    author: string | null;
+    title: string | null;
+    description: string | null;
+    url: string | null;
+    source: string | null;
+    image: string | null;
+    category: string | null;
+    language: string | null;
+    country: string | null;
+    published_at: string | null;
 }

@@ -13,7 +13,7 @@ export default function Details({params}:props) {
 
   return (
     <>
-        <div>Details</div>
+        <div>Details {id}</div>
     </>
   )
 }
