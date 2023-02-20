@@ -106,3 +106,9 @@
     }
   }
 }
+
+@media (min-width: 360px) {
+  .main {
+    padding: 0.5rem;
+  }
+}

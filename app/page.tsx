@@ -1,8 +1,11 @@
 import Button from '@/components/button'
+/* import { CreateNewsFile } from '@/util/news.util' */
 import Image from 'next/image'
 import styles from './page.module.css'
 
 export default async function Home() {
+ /*  await CreateNewsFile(); */
+
   return (
     <>
     <header className={styles.container}>

@@ -1,7 +1,10 @@
 export interface NewsData {
-    _type: string;
-    totalCount: number;
-    value: News[];
+    _type?: string;
+    totalCount?: number;
+    value?: News[];
+    data?: {
+        message?: string;
+    }
 }
 
 export interface News {
@@ -15,5 +18,17 @@ export interface News {
     isSafe: boolean;
     datePublished: string;
     provider: any[];
-    image: any[];
+    image: {
+        url: string;
+        height: number;
+        width: number;
+        thumbnail: string;
+        thumbnailHeight: number;
+        thumbnailWidth: number;
+        base64Encoding: string;
+        name: string;
+        title: string;
+        provider: { name: string; favIcon: string; favIconBase64Encoding: string; };
+        webpageUrl: string;
+    };
 }
