@@ -29,7 +29,7 @@ export default function Nav() {
             <ul className={ classNames(styles.menu, open ? styles.menuShow : '')} id="main-menu">
                {
                 MenuList.map((menu, index) => (
-                    <li key={`${menu.item}-${index}`} className={styles.menuItem}><Link href={menu.item} className={styles.menuLink}>{menu.item}</Link></li>
+                    <li key={`${menu.item}-${index}`} className={styles.menuItem}><Link href={menu.href} className={styles.menuLink}>{menu.item}</Link></li>
                 ))
                 }
             </ul>

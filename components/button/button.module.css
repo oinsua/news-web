@@ -9,6 +9,9 @@
     cursor: pointer;
 }
 
-.buttonLogin:hover {
-    background-color: black;
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+    .buttonLogin:hover {
+        background-color: black;
+    }
 }

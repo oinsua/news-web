@@ -52,6 +52,7 @@
     position: relative;
 }
 
+
 .bar::after,
 .bar::before {
     content: "";
@@ -67,6 +68,7 @@
 .bar::after {
     top: .7em;
 }
+
 
 .barShow {
     display: none !important;
@@ -123,14 +125,17 @@
     }
 }
 
-.menuItem:hover {
-    background-color: rgba(128, 128, 128, 0.3);
-    border-radius: 10px;
-}
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+    .menuItem:hover {
+        background-color: rgba(128, 128, 128, 0.3);
+        border-radius: 10px;
+    }
 
-.menuItem:hover a {
-    color: rgb(252, 250, 250);
-    font-weight: bold;
+    .menuItem:hover a {
+        color: rgb(252, 250, 250);
+        font-weight: bold;
+    }
 }
 
 .menuLink {

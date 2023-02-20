@@ -1,4 +1,4 @@
-.logout {
+.continerLogout {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -6,6 +6,9 @@
     width: 100%;
     height: 40px;
     padding: 1rem;
+}
+
+.logout {
     cursor: pointer;
 }
 
