@@ -9,6 +9,7 @@ export interface NewsData {
 }
 
 export interface News {
+    id?: string;
     author: string | null;
     title: string | null;
     description: string | null;

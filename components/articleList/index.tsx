@@ -19,8 +19,8 @@ export default function ArticleList({ data, url }: props) {
   return (
     <>
     {
-       data.map(({ author, title, description, image, published_at}:News) => (
-            <article className={classNames(inter.className,styles.card)} key={title} >
+       data.map(({ id, author, title, description, image, published_at}:News) => (
+            <article className={classNames(inter.className,styles.card)} key={id} >
                 <div className={styles.wrapperTitle}>
                     <h3 className={inter.className}>
                         {title}
@@ -34,7 +34,7 @@ export default function ArticleList({ data, url }: props) {
                 </p>
                 <h6 className={styles.wrapperRead}>
                     <span className={styles.arrow}>-&gt;</span> 
-                    <Link href={`${url}[id]`} as={`${url}${title?.replace(/ /g, "")}`}>
+                    <Link href={`${url}[id]`} as={`${url}${id}`}>
                             <span className={styles.readMore}>Read More ...</span>
                     </Link>
                 </h6>

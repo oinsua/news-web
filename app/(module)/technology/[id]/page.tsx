@@ -4,6 +4,7 @@ import styles from '../../common.module.css'
 import { News } from 'model/news' 
 import { fetchNewsId } from '@/util/news.util';
 import technology from 'data/technology.json'
+import Link from 'next/link';
 
 type props = {
     params: {
@@ -11,16 +12,14 @@ type props = {
     }
 };
 
-export default function DetailsBusinnes({params}:props) {
+export default function DetailsTechnology({params}:props) {
     const { id } = params
     const { data } = technology
     const itemNew: News = fetchNewsId({id, data})
-    console.log({id})
-    console.log({data})
-    console.log({itemNew})
   return (
-    <div className={styles.gridID}> 
-      <DetailsNews itemNew={itemNew} />
-     </div>
+      <div className={styles.gridID}> 
+        <h4><Link href={`/technology`}>Technology</Link> - Details  </h4>
+        <DetailsNews itemNew={itemNew} />
+      </div>
   )
 }

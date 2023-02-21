@@ -7,8 +7,11 @@ import styles from '../common.module.css'
 export default function Business() {
   const { data }: NewsData = fetchNewsBusiness()
   return (
-    <div className={styles.grid}>
-        <ArticleList data={data} url={`/business/`}/>
-    </div>    
+    <>
+      <h2>Business</h2>
+      <div className={styles.grid}>
+          <ArticleList data={data} url={`/business/`}/>
+      </div>
+    </>    
   )
 }

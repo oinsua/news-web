@@ -11,7 +11,7 @@ export default function Header() {
     <header className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.containerLogo}>
-            <Link href={`/home`}></Link>
+            <Link href={`/home`}>
             <Image
               className={styles.logo}
               src="/next.svg"
@@ -20,6 +20,7 @@ export default function Header() {
               height={30}
               priority
             />
+            </Link>
           </div>
           <Nav />
         </div>

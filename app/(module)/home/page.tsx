@@ -6,8 +6,12 @@ import styles from '../common.module.css'
 export default async function Home() {
   const { data }: NewsData = fetchNewsGeneral()
   return (
-    <div className={styles.grid}>
-        <ArticleList data={data} url={`/home/`}/>
-    </div>    
+    <>
+      <h2>General</h2>
+      <div className={styles.grid}>
+          <ArticleList data={data} url={`/home/`}/>
+      </div>
+    </>
+        
   )
 }

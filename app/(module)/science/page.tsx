@@ -7,8 +7,11 @@ import styles from '../common.module.css'
 export default function Science() {
   const { data }: NewsData = fetchNewsScience()
   return (
-    <div className={styles.grid}>
-        <ArticleList data={data} url={`/science/`}/>
-    </div>    
+    <>
+      <h2>Science</h2>
+      <div className={styles.grid}>
+          <ArticleList data={data} url={`/science/`}/>
+      </div>
+    </>    
   )
 }

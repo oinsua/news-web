@@ -1,10 +1,12 @@
 import Button from '@/components/button'
-/* import { CreateNewsFile } from '@/util/news.util' */
+/* import { addPropertyJson, CreateNewsFile } from '@/util/news.util' */
 import Image from 'next/image'
 import styles from './page.module.css'
+/* import general from 'data/general.json' */
 
 export default async function Home() {
   /* await CreateNewsFile(); */
+  /* await addPropertyJson({category: 'general', items: general}) */
 
   return (
     <>
