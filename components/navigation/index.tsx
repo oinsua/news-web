@@ -13,6 +13,12 @@ export default function Nav() {
      setOpen(open => !open);
   }
 
+  const handleClose = () => {
+    setTimeout(() => {
+        setOpen(false)
+    }, 500)
+  }
+
   return (
     <div className={styles.navContainer}>
         <div className={styles.topBar}>
@@ -29,7 +35,7 @@ export default function Nav() {
             <ul className={ classNames(styles.menu, open ? styles.menuShow : '')} id="main-menu">
                {
                 MenuList.map((menu, index) => (
-                    <li key={`${menu.item}-${index}`} className={styles.menuItem}><Link href={menu.href} className={styles.menuLink}>{menu.item}</Link></li>
+                    <li key={`${menu.item}-${index}`} className={styles.menuItem} onClick={handleClose}><Link href={menu.href} className={styles.menuLink}>{menu.item}</Link></li>
                 ))
                 }
             </ul>

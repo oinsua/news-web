@@ -1,22 +1,10 @@
 .container {
     width: 100%;
     color: white;
-    margin-top: 85px;
     border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
     padding: 0.5rem;
     display: flex;
     justify-content: space-evenly;
-}
-
-.socialNetwork {
-    display: flex;
-    justify-content: space-between;
-}
-
-.wrapperImg {
-    background-color: whitesmoke;
-    height: 30px;
-    margin: 0.5rem;
 }
 
 .formInput {
@@ -60,13 +48,7 @@
         align-items: center;
     }
 
-    .socialNetwork {
-        justify-content: space-around;
-        width: 50%;
-    }
-
     .wrapperSearch {
-        width: 203px;
         margin-top: 1rem;
     }
 }

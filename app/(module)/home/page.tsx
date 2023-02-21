@@ -7,7 +7,7 @@ export default async function Home() {
   const { data }: NewsData = fetchNewsGeneral()
   return (
     <>
-      <h2>General</h2>
+      <h2>Home</h2>
       <div className={styles.grid}>
           <ArticleList data={data} url={`/home/`}/>
       </div>
