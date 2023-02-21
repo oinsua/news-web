@@ -1,0 +1,30 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(33%, auto));
+    width: var(--max-width);
+    max-width: 100%;
+}
+
+/* Mobile and Tablet */
+@media (max-width: 1023px) {
+    .grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 120px;
+        max-width: 320px;
+        text-align: center;
+    }
+
+    .gridID {
+        grid-template-columns: 1fr;
+        margin-bottom: 120px;
+        max-width: 320px;
+        text-align: center;
+    }
+}
+
+.gridID {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: var(--max-width);
+    max-width: 100%;
+}

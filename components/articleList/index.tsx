@@ -2,23 +2,25 @@ import React from 'react'
 import { Inter } from '@next/font/google'
 import styles from './article.module.css'
 import classNames from 'classnames'
-import { News, NewsData } from 'model/news'
-import { fetchNewsGeneral } from '@/util/news.util'
+import { News } from 'model/news'
 import DefaultImage from 'asset/jpg/defaultImage.jpg'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function ArticleList() {
+type props = {
+    data: News[];
+    url: string;
+}
 
-    const { data }: NewsData = fetchNewsGeneral()
+export default function ArticleList({ data, url }: props) {
 
   return (
     <>
     {
-       data.map(({ author, title, description, url, source, image, category, language, country, published_at}:News, index) => (
-            <article className={classNames(inter.className,styles.card)} key={index} >
+       data.map(({ author, title, description, image, published_at}:News) => (
+            <article className={classNames(inter.className,styles.card)} key={title} >
                 <div className={styles.wrapperTitle}>
                     <h3 className={inter.className}>
                         {title}
@@ -32,8 +34,8 @@ export default function ArticleList() {
                 </p>
                 <h6 className={styles.wrapperRead}>
                     <span className={styles.arrow}>-&gt;</span> 
-                    <Link href={`/home/[id]`} as={`/home/${index}`}>
-                            <span className={styles.readMore}>Leer Más ...</span>
+                    <Link href={`${url}[id]`} as={`${url}${title?.replace(/ /g, "")}`}>
+                            <span className={styles.readMore}>Read More ...</span>
                     </Link>
                 </h6>
             </article>

@@ -1,0 +1,159 @@
+.containerDetails {
+    padding: 2rem;
+    margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    padding: 1rem 1.2rem;
+    border-radius: var(--border-radius);
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    margin: 1rem;
+    position: relative;
+    max-width: 700px;
+}
+
+.card .arrow {
+    display: inline-block;
+    transition: transform 200ms;
+}
+
+.card .readMore {
+    margin-left: 1rem;
+}
+
+.card .wrapperRead {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
+
+.card h3 {
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    text-align: left;
+}
+
+.card p {
+    margin: 0;
+    opacity: 0.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    width: 100%;
+}
+
+/* Mobile and Tablet */
+@media (min-width: 1023px) {
+    .card {
+        padding: 1rem 2.5rem;
+        margin: 1rem;
+    }
+
+    .card h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotate(360deg);
+        }
+
+        to {
+            transform: rotate(0deg);
+        }
+    }
+}
+
+@media (prefers-reduced-motion) {
+    .card:hover .arrow {
+        transform: none;
+    }
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+
+    .card:hover .arrow {
+        transform: translateX(10px);
+    }
+}
+
+.images {
+    object-fit: cover;
+    margin: 0.3rem;
+    border-radius: 5px;
+}
+
+.wrapperTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.textItaic {
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: left;
+}
+
+.card .description {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+@media (max-width: 500px) {
+    .card {
+        padding: 1rem 0.5rem;
+    }
+
+    .containerDetails {
+        padding: 0.3rem;
+        margin: 0;
+        margin-bottom: 10rem;
+    }
+
+    .images {
+        height: 80px;
+        width: 80px;
+    }
+
+    .card .wrapperShow {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wrapperTitle .wrapperData {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .images {
+        height: 100px;
+        width: 100px;
+    }
+
+    .containerDetails {
+        margin-bottom: 8rem;
+    }
+}
+
+.wrapperShow {
+    display: none;
+}
+
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapperData {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

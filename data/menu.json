@@ -1,22 +1,22 @@
 [
     {
-        "item": "Item1",
-        "href": "/home"
+        "item": "Business",
+        "href": "/business"
     },
     {
-        "item": "Item2",
-        "href": "/"
+        "item": "Entertainment",
+        "href": "/entertainment"
     },
     {
-        "item": "Item3",
-        "href": "/"
+        "item": "Science",
+        "href": "/science"
     },
     {
-        "item": "Item4",
-        "href": "/"
+        "item": "Sports",
+        "href": "/sports"
     },
     {
-        "item": "Item5",
-        "href": "/"
+        "item": "Technology",
+        "href": "/technology"
     }
 ]

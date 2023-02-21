@@ -3,6 +3,7 @@ import styles from './header.module.css'
 import Image from 'next/image'
 import Nav from '../navigation'
 import Logout from '../logout'
+import Link from 'next/link'
 
 export default function Header() {
   return (
@@ -10,6 +11,7 @@ export default function Header() {
     <header className={styles.container}>
         <div className={styles.wrapper}>
           <div className={styles.containerLogo}>
+            <Link href={`/home`}></Link>
             <Image
               className={styles.logo}
               src="/next.svg"

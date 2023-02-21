@@ -3,7 +3,7 @@ import DetailsNews from '@/components/details';
 import styles from '../../common.module.css'
 import { News } from 'model/news' 
 import { fetchNewsId } from '@/util/news.util';
-import general from 'data/general.json'
+import sports from 'data/sports.json'
 
 type props = {
     params: {
@@ -11,9 +11,9 @@ type props = {
     }
 };
 
-export default function DetailsHome({params}:props) {
+export default function DetailsBusinnes({params}:props) {
     const { id } = params
-    const { data } = general
+    const { data } = sports
     const itemNew: News = fetchNewsId({id, data})
   return (
     <div className={styles.gridID}> 
