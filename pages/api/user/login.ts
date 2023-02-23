@@ -9,6 +9,7 @@ type Data = {
     error?: string;
     message?: string;
     token?: string;
+    data?: {};
 }
 
 const SECRET = process.env.SECRET || '!2sAWQ4$fT%67GDV{e4%WAQ"=8'
@@ -35,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 if (isTrue) {
                     const token = jwt.sign({ id: existUser[0]._id }, SECRET, { expiresIn: 86400 });
 
-                    return res.status(201).json({ success: true, message: "OK", token })
+                    return res.status(201).json({ success: true, message: "OK", token, data: existUser[0] })
                 }
                 return res.status(200).json({ success: false, message: "Incorrect Password" });
             } catch (error: any) {
